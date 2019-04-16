@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Game from './views/Game.vue'
 import Register from './views/Register.vue'
-import MyPage from './views/MyPage.vue'
+import Scores from './views/Scores.vue'
 import Login from './views/Login.vue'
-import Photo from './views/Photo.vue'
 
 
 Vue.use(Router)
@@ -14,14 +13,14 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/game',
+      name: 'game',
+      component: Game
     },
     {
-      path: '/mypage',
-      name: 'mypage',
-      component: MyPage,
+      path: '/scores',
+      name: 'scores',
+      component: Scores,
     },
     {
       path: '/register',
@@ -32,12 +31,6 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
-    },
-    {
-      path: '/photo/:id',
-      name: 'photo',
-      component: Photo,
-      props: true
     }
   ]
 })

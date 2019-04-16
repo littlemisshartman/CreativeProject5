@@ -8,22 +8,18 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: null,
-    photos: [],
-    photo: {},
-    comments: []
+    moves: 0,
+    time: 0
   },
   mutations: {
     setUser(state, user) {
       state.user = user;
     },
-    setPhotos(state, photos) {
-      state.photos = photos;
+    setMoves(state, moves) {
+      state.moves = moves;
     },
-    setPhoto(state, photo) {
-      state.photo = photo;
-    },
-    setComments(state, comments) {
-      state.comments = comments;
+    setTime(state, time) {
+      state.time = time;
     },
   },
   actions: {
@@ -63,76 +59,76 @@ export default new Vuex.Store({
         return "";
       }
     },
-    async upload(context, data) {
-      try {
-        await axios.post('/api/photos', data);
-        return "";
-      } catch (error) {
-        return error.response.data.message;
-      }
-    },
-    async getMyPhotos(context) {
-      try {
-        let response = await axios.get("/api/photos");
-        context.commit('setPhotos', response.data);
-        return "";
-      } catch (error) {
-        return "";
-      }
-    },
-    async getAllPhotos(context) {
-      try {
-        let response = await axios.get("/api/photos/all");
-        context.commit('setPhotos', response.data);
-        return "";
-      } catch (error) {
-        return "";
-      }
-    },
-    async getMyPhoto(context, id) {
-      try {
-        let response = await axios.get("/api/photos/" + id);
-        context.commit('setPhoto', response.data);
-        return "";
-      } catch (error) {
-        return "";
-      }
-    },
-    async addComment(context, data) {
-      console.log("addComment");
-      try {
-        await axios.post('/api/comments', data);
-        return "";
-      } catch (error) {
-        return error.response.data.message;
-      }
-    },
-    async getMyComments(context) {
-      try {
-        let response = await axios.get("/api/comments");
-        context.commit('setComments', response.data);
-        return "";
-      } catch (error) {
-        return "";
-      }
-    },
-    async getAllComments(context) {
-      try {
-        let response = await axios.get("/api/comments/all");
-        context.commit('setComments', response.data);
-        return "";
-      } catch (error) {
-        return "";
-      }
-    },
-    async getMyComment(context, id) {
-      try {
-        let response = await axios.get("/api/comments/" + id);
-        context.commit('setComments', response.data);
-        return "";
-      } catch (error) {
-        return "";
-      }
-    }
+    // async upload(context, data) {
+    //   try {
+    //     await axios.post('/api/photos', data);
+    //     return "";
+    //   } catch (error) {
+    //     return error.response.data.message;
+    //   }
+    // },
+    // async getMyPhotos(context) {
+    //   try {
+    //     let response = await axios.get("/api/photos");
+    //     context.commit('setPhotos', response.data);
+    //     return "";
+    //   } catch (error) {
+    //     return "";
+    //   }
+    // },
+    // async getAllPhotos(context) {
+    //   try {
+    //     let response = await axios.get("/api/photos/all");
+    //     context.commit('setPhotos', response.data);
+    //     return "";
+    //   } catch (error) {
+    //     return "";
+    //   }
+    // },
+    // async getMyPhoto(context, id) {
+    //   try {
+    //     let response = await axios.get("/api/photos/" + id);
+    //     context.commit('setPhoto', response.data);
+    //     return "";
+    //   } catch (error) {
+    //     return "";
+    //   }
+    // },
+    // async addComment(context, data) {
+    //   console.log("addComment");
+    //   try {
+    //     await axios.post('/api/comments', data);
+    //     return "";
+    //   } catch (error) {
+    //     return error.response.data.message;
+    //   }
+    // },
+    // async getMyComments(context) {
+    //   try {
+    //     let response = await axios.get("/api/comments");
+    //     context.commit('setComments', response.data);
+    //     return "";
+    //   } catch (error) {
+    //     return "";
+    //   }
+    // },
+    // async getAllComments(context) {
+    //   try {
+    //     let response = await axios.get("/api/comments/all");
+    //     context.commit('setComments', response.data);
+    //     return "";
+    //   } catch (error) {
+    //     return "";
+    //   }
+    // },
+    // async getMyComment(context, id) {
+    //   try {
+    //     let response = await axios.get("/api/comments/" + id);
+    //     context.commit('setComments', response.data);
+    //     return "";
+    //   } catch (error) {
+    //     return "";
+    //   }
+    // }
   }
 })

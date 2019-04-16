@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>Login to your account</h1>
+  <h1>Login</h1>
   <form @submit.prevent="login" class="pure-form pure-form-aligned">
     <fieldset>
       <p class="pure-form-message-inline">All fields are required.</p>
